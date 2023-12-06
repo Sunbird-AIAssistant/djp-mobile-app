@@ -35,6 +35,7 @@
     "@ngx-translate/http-loader": "^8.0.0",
     "@project-sunbird/sunbird-pdf-player-web-component": "1.1.0",
     "@project-sunbird/sunbird-video-player-web-component": "1.1.1",
+    "@project-sunbird/telemetry-sdk": "0.0.29",
     "ionicons": "^7.0.0",
     "jquery": "^3.7.1",
     "reflect-metadata": "^0.1.13",

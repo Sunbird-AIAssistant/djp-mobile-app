@@ -16,7 +16,7 @@ export class DbService {
     this.sqlitePlugin = CapacitorSQLite;
     this.sqliteConnection = new SQLiteConnection(this.sqlitePlugin);
     await this.openDatabase('digital_jaddu_pitara.db', false, "no-encryption", 3, false);
-    await this.createTable('telemetry', `(_id  INTEGER PRIMARY KEY,event_type TEXT, event TEXT, timestamp INTEGER, priority INTEGER )`);
+    await this.createTable('telemetry', `(_id  INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, event_type TEXT, event TEXT, timestamp INTEGER, priority INTEGER )`);
     return true;
   }
 
@@ -43,7 +43,7 @@ export class DbService {
 
   async createTable(table: string, col: any): Promise<any> {
     try {
-      const stmt: string = `CREATE TABLE IF NOT EXISTS ${table} ${col};`
+      const stmt: string = `CREATE TABLE IF NOT EXISTS ${table} ${col};`;
       const retValues = (await this.sqliteDBConnection.query(stmt)).values;
       console.log('retValues ', retValues);
       const ret = retValues!.length > 0 ? retValues! : null;
@@ -59,12 +59,12 @@ export class DbService {
         const fetchCndtn: boolean = where ? true : false;
         if(fetchCndtn) {
           const key: string = Object.keys(where)[0];
-          const stmt: string = `SELECT * FROM ${table} WHERE ${key}=${where[key]};`
+          const stmt: string = `SELECT * FROM ${table} WHERE ${key}=${where[key]};`;
           const retValues = (await this.sqliteDBConnection.query(stmt)).values;
           const ret = retValues!.length > 0 ? retValues! : null;
           return ret;
         } else {
-          const stmt: string = `SELECT * FROM ${table};`
+          const stmt: string = `SELECT * FROM ${table};`;
           const retValues = (await this.sqliteDBConnection.query(stmt)).values;
           const ret = retValues!.length > 0 ? retValues![0] : null;
           return ret;
