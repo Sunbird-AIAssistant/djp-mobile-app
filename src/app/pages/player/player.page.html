@@ -1,0 +1,10 @@
+<div id="playerFullscreen" class="player-fullscreen">
+  <ion-fab *ngIf="playerType" slot="fixed" vertical="top" horizontal="start" size="small">
+    <ion-fab-button (click)="closePlayer()">
+      <ion-icon name="close"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <div #pdf *ngIf="playerType==='pdf'" style="height: 100%;"></div>
+
+  <div #video *ngIf="playerType==='video'" style="height: 100%;"></div>
+</div>
