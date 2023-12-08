@@ -4,7 +4,7 @@
       <ion-icon name="close"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-  <div #pdf *ngIf="playerType==='pdf'" style="height: 100%;"></div>
+  <div #pdf class="pdf-player" *ngIf="playerType==='pdf'"></div>
 
-  <div #video *ngIf="playerType==='video'" style="height: 100%;"></div>
+  <div #video class="video-player" *ngIf="playerType==='video'"></div>
 </div>
