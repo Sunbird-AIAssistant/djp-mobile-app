@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DbService } from './db.service';
+import { DbService } from './db/db.service';
 import { TelemetryService } from './telemetry/telemetry.service';
 
 @Injectable({

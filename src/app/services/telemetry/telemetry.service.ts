@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
-import { ITelemetryContext, IProducerdata, IActor, ITelemetry, ICDataEntry, ITelemetryObject } from './telemetry-request';
-import { DbService } from '../db.service';
+import { ITelemetryContext, IProducerdata, IActor, ITelemetry, } from './telemetry-request';
+import { DbService } from '../db/db.service';
+import { initTelemetryContext } from './telemetryConstants';
+import { StorageService } from '../storage.service';
+import { UtilService } from '../util.service';
+import { TelemetryConfigEntry } from '../db/telemetrySchema';
 
 declare const window: any;
 
@@ -15,43 +19,21 @@ export class TelemetryService {
     actor!: IActor;
     config!: ITelemetry;
     constructor(
-        private dbservice: DbService
+        private dbService: DbService,
+        private storageService: StorageService,
+        private utilService: UtilService
     ) { }
 
-    public raiseEndTelemetryWith(cdata: ICDataEntry[], env: string, edata: any, telemetryObject?: ITelemetryObject | undefined) {
-        throw new Error('Method not implemented.');
-    }
-
-    public initializeTelemetry() {
+    public async initializeTelemetry() {
         let that = this;
-        let context: ITelemetryContext = {
-            config: {
-              "pdata": {
-                "id": "genie",
-                "ver": "6.5.2567",
-                "pid": ""
-              },
-              "env": "initTelemetry",
-              "channel": "",
-              "did": "20d63257084c2dca33f31a8f14d8e94c0d939de4",
-              "authtoken": "",
-              "uid": "anonymous",
-              "sid": "85e8a2c8-bb8e-4666-a21b-c29ec590d740",
-              "batchsize": 20,
-              "mode": "",
-              "host": "",
-              "endpoint": "/v3/telemetry",  
-              "tags": [],
-              "cdata": [],
-              'dispatcher': {
-                dispatch: async function (event: any) {
-                    let tableData = {event_type: event.eid, event: JSON.stringify(event), timestamp: Date.now(), priority: 1}
-                    await that.dbservice.save('telemetry', tableData);
-                }
-              }
-            },
-            userOrgDetails: ''
-        };
+        let context = initTelemetryContext
+        context.config.sid = await this.storageService.getData('sid');
+        context.config.did = await this.utilService.getDeviceId();
+        context.config.dispatcher = {
+            dispatch: async function (event: any) {
+            let tableData = {event_type: event.eid, event: JSON.stringify(event), timestamp: Date.now(), priority: 1}
+            await that.dbService.save(TelemetryConfigEntry.insertData(), tableData);
+        }}
         this.initTelemetry(context);
     }
 
@@ -83,37 +65,14 @@ export class TelemetryService {
         this.config.sid = sid;
         this.actor = actor;
     }
-    // public initProducerData(pdata: IProducerdata) {
-    //     if (this.pData) {
-    //         return this.pData;
-    //     } else {
-    //         this.config.pdata = pdata;
-    //     }
-    // }
+
     private isTelemetryInitialised() {
         return this._isInitialsed;
     }
+
     public raiseInteractTelemetry(interactObject: any) {
         if (this.isTelemetryInitialised()) {
             this.telemetryProvider.interact(interactObject.edata, interactObject.options);
-        }
-    }
-
-    public raiseImpressionTelemetry(impressionObject: any) {
-        if (this.isTelemetryInitialised()) {
-            this.telemetryProvider.impression(impressionObject.edata, impressionObject.options);
-        }
-    }
-
-    public raiseLogTelemetry(logObject: any) {
-        if (this.isTelemetryInitialised()) {
-            this.telemetryProvider.log(logObject.edata, logObject.options);
-        }
-    }
-
-    public raiseErrorTelemetry(errorObject: any) {
-        if (this.isTelemetryInitialised()) {
-            this.telemetryProvider.error(errorObject.edata, errorObject.options);
         }
     }
 

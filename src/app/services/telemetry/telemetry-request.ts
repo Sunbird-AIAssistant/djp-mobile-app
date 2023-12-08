@@ -46,7 +46,7 @@ export interface IEventInput {
     'context': IContext;
     'object'?: ITelemetryObject;
     'tags'?: Array<string>;
-    'edata'?: {};
+    'edata'?: any;
     'mid': string;
 }
 

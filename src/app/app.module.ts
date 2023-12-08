@@ -9,9 +9,11 @@ import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-transla
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { StorageService } from './services/storage.service';
-import { DbService } from './services/db.service';
+import { DbService } from './services/db/db.service';
 import { AppInitializeService } from './services/appInitialize.service';
 import { TelemetryService } from './services/telemetry/telemetry.service';
+import { AppHeaderService } from './services/app-header.service';
+import { UtilService } from './services/util.service';
 
 export function translateHttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
@@ -36,7 +38,9 @@ export function translateHttpLoaderFactory(httpClient: HttpClient) {
     StorageService,
     DbService,
     AppInitializeService,
-    TelemetryService
+    TelemetryService,
+    AppHeaderService,
+    UtilService
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
