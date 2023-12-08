@@ -5,6 +5,7 @@ import { Content, Filter } from 'src/app/appConstants';
 import { AppHeaderService, UtilService } from 'src/app/services';
 import { Share } from "@capacitor/share";
 import { ConfigService } from 'src/app/services/config.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
