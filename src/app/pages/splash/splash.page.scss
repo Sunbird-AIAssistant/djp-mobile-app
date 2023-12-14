@@ -9,8 +9,15 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    .Jaadui-Pitara-txt{
-      margin-top: 1rem;
+    .logo{
+      display: flex;
+      flex-direction: column;
+      :first-child{
+        height: 4.5rem;
+      }
+      :last-child{
+        margin-top: 1rem;
+      }
     }
   }
 }
