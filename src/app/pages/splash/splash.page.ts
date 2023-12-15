@@ -29,7 +29,7 @@ export class SplashPage implements OnInit {
     setTimeout(async () => {
       this.startTelemetry()
       this.router.navigate(['/tabs/home']);
-    }, 2000000);
+    }, 2000);
     let sid = uuidv4();
     this.storage.setData("sid", sid);
     this.appinitialise.initialize();
