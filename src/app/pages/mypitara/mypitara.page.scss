@@ -9,7 +9,6 @@ ion-content {
         display: flex;
         justify-content: space-between;
         font-size: 0.875rem;
-        color: var(--ion-color-dark);
         font-weight: 700;
         &__link{
             color: var(--ion-color-primary);
@@ -63,7 +62,7 @@ ion-content {
         justify-content: space-between;
         align-items: center;
         font-size: 0.875rem;
-        color: var(--ion-color-dark);
+        color: var(--ion-color-secondary-contrast);
         font-weight: 700;
         &__button{
             ion-icon{
@@ -130,7 +129,7 @@ ion-content {
                 -webkit-box-orient: vertical;
                 margin-right: 1.5rem;
             }
-            .kabab-menu-icon{
+            .kabab-menu{
                 position: absolute;
                 right: 1rem;
                 ion-icon{

@@ -4,7 +4,6 @@
         display: flex;
         justify-content: space-between;
         font-size: 1rem;
-        color: var(--ion-color-dark);
         margin-bottom: 1rem;
         &__add{
             font-size: 1.313rem;
@@ -129,6 +128,7 @@
         ion-icon {
             width: 1.5rem;
             height: 1.5rem;
+            fill: var(--ion-color-secondary-contrast);
         }
     }
   

@@ -54,10 +54,11 @@ ion-content{
         height: 2.25rem;
         min-height: auto;
         padding: 0 0.5rem !important;
-        --border-color: gray;
-        caret-color: gray !important;
-        --highlight-color: gray !important;
-        --highlight-color-focused: gray !important;
+        color: var(--ion-color-secondary-contrast);
+        --border-color: var(--ion-color-medium);
+        caret-color: var(--ion-color-medium) !important;
+        --highlight-color: var(--ion-color-medium) !important;
+        --highlight-color-focused: var(--ion-color-medium) !important;
     }
 }
 

@@ -79,9 +79,15 @@
   --ion-font-weight-light: 300; // Light font weight
   --ion-font-weight-normal: 400; // Normal font weight (default)
   --ion-font-weight-bold: 700; // Bold font weight
+
+  //custom variables
+  --pills-bg: rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.12);
+  --pills-txt: rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.87);
+  --pills-active-bg: var(--ion-color-secondary-contrast);
+  --pills-active-txt: var(--ion-color-primary-contrast);
 }
 .darkmode{
-  --ion-background-color: #333;
+  --ion-background-color: #222;
 
   --ion-color-primary: #ffd954;
   --ion-color-primary-rgb: 103, 95, 206;
@@ -96,4 +102,10 @@
   --ion-color-secondary-contrast-rgb: 0, 0, 0;
   --ion-color-secondary-shade: #01b1a4;
   --ion-color-secondary-tint: #1acec1;
+
+  //custom variables
+  --pills-bg: #444;
+  --pills-txt: var(--ion-color-secondary-contrast);
+  --pills-active-bg: var(--ion-color-primary);
+  --pills-active-txt: var(--ion-background-color);
 }

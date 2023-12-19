@@ -10,7 +10,6 @@ ion-content{
         justify-content: space-between;
         font-size: 1rem;
         margin-bottom: 1rem;
-        color: var(--ion-color-dark);
         position: sticky;
         top: 15px;
         background-color: var(--ion-color-primary-contrast);
@@ -74,7 +73,7 @@ ion-checkbox {
   margin-right: 0.5rem;/* Add spacing between checkbox and other actions */
 }
 
-.kabab-menu-icon{
+.kabab-menu{
   position: absolute;
   right: 1rem;
   ion-icon{
@@ -187,6 +186,7 @@ ion-checkbox {
       ion-icon {
           width: 1.5rem;
           height: 1.5rem;
+          fill: var(--ion-color-secondary-contrast);
       }
   }
 

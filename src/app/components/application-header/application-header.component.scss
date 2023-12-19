@@ -52,12 +52,15 @@ ion-icon {
     border-radius: 0.625rem;
     font-size: 0.75rem;
     width: max-content;
+    background-color: var(--pills-bg);
+    color: var(--pills-txt);
     &.active {
-      background-color: var(--ion-color-secondary-contrast);
-      color: var(--ion-color-primary-contrast);
+      background-color: var(--pills-active-bg);
+      color: var(--pills-active-txt);
     }
-    icon-icon{
+    ion-icon {
       margin-left: 0;
+      fill: var(--ion-color-secondary-contrast);
     }
   }
 }
@@ -66,7 +69,7 @@ ion-icon {
   ion-toolbar {
     --background:  var(--ion-color-primary-contrast);
     --color: var(--ion-color-secondary-contrast);
-    margin: 0 0 0 1.5rem;
+    padding-left: 1.5rem;
   }
   ion-label {
     display: flex;
@@ -80,6 +83,10 @@ ion-icon {
     .sb-menu-item{
       margin: 0 0 0 0.5rem; 
     }
+    ion-item{
+      --background: var(--ion-color-primary-contrast);
+      --color: var(--ion-color-secondary-contrast);
+    }
   }
 }
 
@@ -87,10 +94,7 @@ ion-icon {
 
 .custom-header {
   ion-title {
-    color: #FF3B53;
-  }
-  .title_bb {
-    color: black;
+    color: var(--ion-color-primary);
   }
 }
 

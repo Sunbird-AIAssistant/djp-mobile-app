@@ -56,8 +56,8 @@
           <div class="djp-playlist__container__items__metadata" *ngIf="playlist?.name">
             {{playlist.name |translate}}
           </div>
-          <div class="kabab-menu-icon" (click)="openModal(playlist)">
-            <ion-icon slot="end" aria-hidden="true" src="../../../assets/icon/kabab-icon.svg"></ion-icon>
+          <div class="kabab-menu" (click)="openModal(playlist)">
+            <ion-icon class="kabab-icon" slot="end" aria-hidden="true" src="../../../assets/icon/kabab-icon.svg"></ion-icon>
           </div>
         </div>
       </div>
