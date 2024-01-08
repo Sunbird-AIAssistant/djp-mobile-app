@@ -32,12 +32,12 @@ export class SearchService {
     let body = JSON.stringify(request)
     console.log("body ", body);
     const apiRequest = new ApiRequest.Builder()
-      .withHost(config.api.SEARCH_BASE_URL)
+      .withHost(config.api.BASE_URL)
       .withPath(config.api.CONTEXT_SEARCH)
       .withType(ApiHttpRequestType.POST)
       .withBody(body)
       .withBearerToken(true)
-      .withLanguge(this.translate.currentLang)
+      .withLanguge(data.currentLang)
       .build()
     return lastValueFrom(this.apiService.fetch(apiRequest).pipe(
       map((response: ApiResponse<any>) => {
@@ -49,7 +49,7 @@ export class SearchService {
     ));
   }
 
-  postContentSearch(data: any): Promise<any> {
+  postContentSearch(data: any, lang: any): Promise<any> {
     let request = {
       request: {
         query: data.query,
@@ -62,6 +62,7 @@ export class SearchService {
       .withType(ApiHttpRequestType.POST)
       .withBody(request)
       .withBearerToken(true)
+      .withLanguge(lang)
       .build()
     return lastValueFrom(this.apiService.fetch(apiRequest).pipe(
       map((response: ApiResponse) => {

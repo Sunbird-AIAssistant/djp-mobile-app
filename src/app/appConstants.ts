@@ -240,6 +240,7 @@ export const sidebarMenuItems = [
 ]
 
 export interface BotMessage {
+    identifier: string;
     message: string;
     messageType: string;
     displayMsg: string;
@@ -250,6 +251,7 @@ export interface BotMessage {
     readMore: boolean;
     likeMsg: boolean;
     dislikeMsg: boolean;
+    requestId: string;
 }
 
 export class Sakhi {
