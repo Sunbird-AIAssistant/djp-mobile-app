@@ -37,8 +37,8 @@ export class SplashPage implements OnInit {
     setTimeout(async () => {
       console.log('route');
       this.startTelemetry()
-      // this.router.navigate(['/tabs/home']);
-    }, 200000000);
+      this.router.navigate(['/tabs/home']);
+    }, 2000);
     this.appinitialise.initialize();
     let config = await this.configService.getConfigMeta();
     this.storage.setData('configMeta', JSON.stringify(config));
