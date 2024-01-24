@@ -75,8 +75,8 @@ export class SearchPage implements OnInit, OnTabViewWillEnter {
         this.showSheenAnimation = true;
         let res = await this.searchApi.postSearchContext({text: data, currentLang: await this.storage.getData('lang')}, audio);
         if (res.input) {
-          if(res?.input?.englishText) {
-            this.searchKeywords = res?.input?.englishText;
+          if(res?.input?.sourceText) {
+            this.searchKeywords = res?.input?.sourceText;
           }
           this.handleContentSearch(res, audio);
         } else {
@@ -84,7 +84,7 @@ export class SearchPage implements OnInit, OnTabViewWillEnter {
           this.showSheenAnimation = false;
           this.noSearchData = true;
           this.searchContentResult = [];
-          this.errMsg = "Sry, please try again!"
+          this.errMsg = "Sorry, please try again!"
         }
       } else {
         if(this.searchKeywords.replace(/\s/g, '').length > 0) {
@@ -92,8 +92,8 @@ export class SearchPage implements OnInit, OnTabViewWillEnter {
           Keyboard.hide();
           let res = await this.searchApi.postSearchContext({text: this.searchKeywords, currentLang:  await this.storage.getData('lang')}, audio);
             // Content search api call
-          if(res?.input?.englishText) {
-            this.searchKeywords = res?.input?.englishText;
+          if(res?.input?.sourceText) {
+            this.searchKeywords = res?.input?.sourceText;
           }
           this.handleContentSearch(res, false);
         }
@@ -104,7 +104,7 @@ export class SearchPage implements OnInit, OnTabViewWillEnter {
         this.showSheenAnimation = false;
         this.noSearchData = true;
         this.searchContentResult = [];
-        this.errMsg = "Sry, please try again!"
+        this.errMsg = "Sorry, please try again!"
       } else {
         this.handleContentSearch('', false);
       }
@@ -141,7 +141,7 @@ export class SearchPage implements OnInit, OnTabViewWillEnter {
       this.showSheenAnimation = false;
       this.noSearchData = true;
       this.searchContentResult = [];
-      this.errMsg = "Sry, please try again!"
+      this.errMsg = "Sorry, please try again!"
     }
   }
 
@@ -155,9 +155,9 @@ export class SearchPage implements OnInit, OnTabViewWillEnter {
           content: content
         },
         cssClass: 'sheet-modal',
-        breakpoints: [0.3],
+        breakpoints: [0.25],
         showBackdrop: false,
-        initialBreakpoint: 0.3,
+        initialBreakpoint: 0.25,
         handle: false,
         handleBehavior: "none"
       });
@@ -209,10 +209,6 @@ export class SearchPage implements OnInit, OnTabViewWillEnter {
     this.contentService.markContentAsViewed(content)
     await this.router.navigate(['/player'], {state: {content}})
   }
-  
-  loadYoutubeImg(id: string): string {
-    return `https://img.youtube.com/vi/${id}/mqdefault.jpg`;
-  }
 
   async onLongPressStart() {
     console.log('long press on search start');
@@ -233,9 +229,9 @@ export class SearchPage implements OnInit, OnTabViewWillEnter {
     this.modal = await this.modalCtrl.create({
       component: RecordingAlertComponent,
       cssClass: 'sheet-modal',
-      breakpoints: [0.45],
+      breakpoints: [0.4],
       showBackdrop: false,
-      initialBreakpoint: 0.45,
+      initialBreakpoint: 0.4,
       handle: false,
       handleBehavior: "none"
     });

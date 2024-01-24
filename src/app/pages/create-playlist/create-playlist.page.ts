@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { MimeType, PlayerType } from 'src/app/appConstants';
 import { ContentUtil } from 'src/app/services/content/util/content.util';
 import { Location } from '@angular/common';
+import getYouTubeID from 'get-youtube-id';
 
 @Component({
   selector: 'app-create-playlist',
@@ -20,6 +21,7 @@ export class CreatePlaylistPage implements OnInit {
   playlists: any;
   playlistName = '';
   public files: PickedFile[] = [];
+  navigateBack: boolean = false;
   resolveNativePath = (path : string) =>
   new Promise((resolve, reject) => {
     (window as any).FilePath.resolveNativePath(path, resolve, (err : any) => {
@@ -47,7 +49,7 @@ export class CreatePlaylistPage implements OnInit {
         this.selectedContents = this.playlists['playListcontentList'];
         this.selectedContents.map((e) => {
           e['isSelected'] = true;
-          if (!e['metaData']) {
+          if (!e['metaData'] && e['content_metadata']) {
             e['metaData'] = JSON.parse(e['content_metadata'])
           }
         });
@@ -56,6 +58,7 @@ export class CreatePlaylistPage implements OnInit {
       } else {
         this.selectedContents = extras.state?.['selectedContents'];
       }
+      this.selectedContents = this.selectedContents.filter((e) => e['metaData']);
       this.reSelectedContent = this.selectedContents;
     }
   }
@@ -67,7 +70,8 @@ export class CreatePlaylistPage implements OnInit {
       console.log('result', result)
     });
     this.headerService.headerEventEmitted$.subscribe((event) => {
-      if (event === 'back' && this.status === 'edit') {
+      if (event === 'back' && this.status === 'edit' && !this.navigateBack) {
+        this.navigateBack = true;
         this.location.back();
       }
     });
@@ -143,7 +147,11 @@ export class CreatePlaylistPage implements OnInit {
     })
   }
 
-  loadYoutubeImg(id: string): string {
+  loadYoutubeImg(metaData: any): string {
+    let id = metaData.identifier;
+    if(id.startsWith("do_")) {
+      id = getYouTubeID(metaData.url);
+    }
     return `https://img.youtube.com/vi/${id}/mqdefault.jpg`;
   }
 

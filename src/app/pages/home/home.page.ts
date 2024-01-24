@@ -16,7 +16,7 @@ import { TelemetryGeneratorService } from 'src/app/services/telemetry/telemetry.
 import { TelemetryObject } from 'src/app/services/telemetry/models/telemetry';
 import confetti from 'canvas-confetti';
 import { NativeAudio } from '@capacitor-community/native-audio';
-import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -157,7 +157,8 @@ export class HomePage implements OnInit, OnTabViewWillEnter, OnDestroy {
       this.getServerMetaConfig();
     } else if (!this.networkConnected) {
       this.configContents = [];
-      this.configContents = await this.contentService.getAllContent();
+      let dbContent = await this.contentService.getAllContent();
+      this.configContents = dbContent;
       if (this.configContents.length == 0) this.getServerMetaConfig();
       this.showSheenAnimation = false;
     } else {
@@ -194,7 +195,11 @@ export class HomePage implements OnInit, OnTabViewWillEnter, OnDestroy {
         list.metaData = ele
         this.configContents.push(list)
       });
-      this.contentService.saveContents(this.configContents).then()
+      await this.contentService.saveContents(this.configContents)
+      this.contentService.getAllContent().then(val => {
+        this.configContents = [];
+        this.configContents = val;
+      })
     } else {
       this.noSearchData = true;
     }
@@ -212,7 +217,7 @@ export class HomePage implements OnInit, OnTabViewWillEnter, OnDestroy {
   }
 
   async tabViewWillEnter() {
-    await this.headerService.showHeader('Title', false);
+    await this.headerService.showHeader('e-Jaadui Pitara', false);
     setTimeout(() => {
       this.headerService.showStatusBar(false);
     }, 0);
@@ -236,9 +241,9 @@ export class HomePage implements OnInit, OnTabViewWillEnter, OnDestroy {
           content: content
         },
         cssClass: 'sheet-modal',
-        breakpoints: [0.3],
+        breakpoints: [0.25],
         showBackdrop: false,
-        initialBreakpoint: 0.3,
+        initialBreakpoint: 0.25,
         handle: false,
         handleBehavior: "none"
       });
@@ -335,10 +340,6 @@ export class HomePage implements OnInit, OnTabViewWillEnter, OnDestroy {
   sanitiseUrl(url: string): SafeResourceUrl {
     let sanitizeUrl = url.split('&')[0]
     return this.domSanitiser.bypassSecurityTrustResourceUrl(sanitizeUrl.replace('watch?v=', 'embed/') + '?autoplay=1&controls=1');
-  }
-
-  loadYoutubeImg(id: string): string {
-    return `https://img.youtube.com/vi/${id}/mqdefault.jpg`;
   }
 
   navigateToSakhi(type: string) {

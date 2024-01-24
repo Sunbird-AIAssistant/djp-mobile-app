@@ -34,7 +34,6 @@ ion-popover.lang-modal {
 
 ion-modal.sheet-modal {
     --width: 90%;
-    --height: 85%;
     --border-radius: 20px;
 }
 
@@ -107,6 +106,15 @@ ion-popover.lang-modal::part(content){
 app-langauge-select ion-header ion-toolbar{
     background-color: #FFF !important;
     --background: none;
+}
+
+ion-button {
+    font-size: 0.75rem;
+}
+
+ion-icon {
+    height: 1.25rem;
+    width: 1.25rem;
 }
 
 // .plyr--youtube.plyr--paused.plyr--playing.plyr--hide-controls.plyr__poster-enabled:not(.plyr--stopped) .plyr__poster {
