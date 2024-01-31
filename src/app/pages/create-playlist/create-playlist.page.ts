@@ -106,7 +106,7 @@ export class CreatePlaylistPage implements OnInit {
         }
       }
     });
-    if (this.playlistName) {
+    if (this.playlistName.replace(/\s/g, '').length > 0) {
       let identifier = this.playlists ? this.playlists.identifier : undefined;
       this.playListService.createPlayList(this.playlistName, 'guest', request, identifier).then((data) => {
         // API
@@ -141,7 +141,7 @@ export class CreatePlaylistPage implements OnInit {
         if (ele.metaData.mimetype === PlayerType.YOUTUBE) {
           ele.metaData['thumbnail'] = this.loadYoutubeImg(ele.metaData);
         } else {
-          ele.metaData['thumbnail'] = ContentUtil.getImagePath(ele.metaData.mimetype || ele.metaData.mimeType)
+          ele.metaData['thumbnail'] = ele.metaData.thumbnail || ContentUtil.getImagePath(ele.metaData.mimetype || ele.metaData.mimeType)
         }
       }
     })
