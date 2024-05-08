@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    environment: ejp
+    environment: sunbird-ai-assistant
     runs-on: ubuntu-latest
 
     steps:
