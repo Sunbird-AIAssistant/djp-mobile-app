@@ -47,7 +47,7 @@ jobs:
       uses: timheuer/base64-to-file@v1.2
       with:
         fileName: 'environment.prod.ts'
-        fileDir: '/home/runner/work/djp-mobile-app/djp-mobile-app/configuration/'
+        fileDir: '/home/runner/work/mobile-app/mobile-app/configuration/'
         encodedString: ${{ secrets.ENV }}
 
     - name: Decode config file
@@ -55,7 +55,7 @@ jobs:
       uses: timheuer/base64-to-file@v1.2
       with:
         fileName: 'config.properties'
-        fileDir: '/home/runner/work/djp-mobile-app/djp-mobile-app/configuration/'
+        fileDir: '/home/runner/work/mobile-app/mobile-app/configuration/'
         encodedString: ${{ secrets.CONFIG }}
 
     - name: Transform Sunbird Assistant repo to EJP 
@@ -69,7 +69,7 @@ jobs:
       uses: timheuer/base64-to-file@v1.2
       with:
         fileName: 'android_keystore.jks'
-        fileDir: '/home/runner/work/djp-mobile-app/djp-mobile-app/android/app/keystore/'
+        fileDir: '/home/runner/work/mobile-app/mobile-app/android/app/keystore/'
         encodedString: ${{ secrets.KEYSTORE }}
 
     - name: Build bundle
