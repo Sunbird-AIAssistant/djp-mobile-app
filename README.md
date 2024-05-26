@@ -3,7 +3,26 @@
 The Sunbird-AIAssistant mobile app is a versatile platform allowing users to seamlessly search, play, like, and share various types of content. It features chat functionality with three distinct bots—Story Bot for storytelling, Parent Assistant for parent-child engagement, and Teacher Assistant for educational support. The app also includes a 'My Pitara' feature enabling users to create personalized playlists. With a user-friendly interface and a blend of entertainment and education, the app aims to offer a holistic and interactive experience for diverse user needs.
 
 # 💻 Tech Stack:
-![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white) ![Ionic](https://img.shields.io/badge/Ionic-3880FF?style=for-the-badge&logo=ionic&logoColor=white) ![Capacitor](https://img.shields.io/badge/capacitor-%230b9dff.svg?style=for-the-badge&logo=capacitor&logoColor=white) ![Cordova](https://img.shields.io/badge/Cordova-35434F?style=for-the-badge&logo=apache-cordova&logoColor=E8E8E8) ![Angular](https://img.shields.io/badge/angular-%23d6002f.svg?style=for-the-badge&logo=angular&logoColor=white) ![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
+![TypeScript](https://img.shields.io/badge/typescript-%233772ff.svg?style=for-the-badge&logo=typescript&logoColor=white) ![Ionic](https://img.shields.io/badge/ionic-%233772ff.svg?style=for-the-badge&logo=ionic&logoColor=white) ![Capacitor](https://img.shields.io/badge/capacitor-%230b9dff.svg?style=for-the-badge&logo=capacitor&logoColor=white) ![Cordova](https://img.shields.io/badge/Cordova-35434F?style=for-the-badge&logo=apache-cordova&logoColor=E8E8E8) ![Angular](https://img.shields.io/badge/angular-%23d6002f.svg?style=for-the-badge&logo=angular&logoColor=white) ![Android](https://img.shields.io/badge/android-%239fc037.svg?style=for-the-badge&logo=android&logoColor=white)
+![Sqlite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)
+
+## Functionalities
+* Content Discovery
+  * Search 
+  * Filter
+  * Qr Scan
+* Language Selection 
+* Bots
+  * Story Bot
+  * Parent Bot
+  * Teacher Bot
+* My Pitara
+    * Recently Viewed Contents
+    * Playlist   
+        * Upload from Youtube 
+        * Upload local files
+        * Upload from Diksha
+* Telemetry Sync
 
 
 **Prerequisites:**
