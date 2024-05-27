@@ -11,6 +11,8 @@ The Sunbird-AIAssistant mobile app is a versatile platform allowing users to sea
   * Search 
   * Filter
   * Qr Scan
+  * Like
+  * Share
 * Language Selection 
 * Bots
   * Story Bot
