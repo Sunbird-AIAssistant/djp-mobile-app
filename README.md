@@ -7,26 +7,55 @@ The Sunbird-AIAssistant mobile app is a versatile platform allowing users to sea
 ![Sqlite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)
 
 ## Functionalities
-* Content Discovery
-  * Search 
-  * Filter
-  * Qr Scan
-  * Like
-  * Share
-* Language Selection 
-* Bots
-  * Story Bot
-  * Parent Bot
-  * Teacher Bot
-* My Pitara
-    * Recently Viewed Contents
-    * Playlist   
-        * Upload from Youtube 
-        * Upload local files
-        * Upload from Diksha
-* Telemetry Sync
+* ### Content Discovery
+  * #### Search
+    
+      Shows content based upon the query given it as input. Also it takes recorded audio as input to show the desired contents.
+     
+  * #### Filter
+    
+     Filters contents based upon the filter selected in the UI.
+    
+  * #### Qr Scan
+ 
+     Scans the QR Code(Diksha supported) and shows the content.
+  * #### Like
+ 
+    Device specific like functionality is available and telemetry is generated on this action.
+    
+  * #### Share
+ 
+    Shared the content URL on all supported apps available on the device.
+    
+* ### Language Selection
 
+  Changes the app language based upon the language selected in the UI. Also it filters the content based upon the language.
   
+* ### Bots
+  * #### Story Bot
+  * #### Parent Bot
+  * #### Teacher Bot
+* ### My Pitara
+    * #### Recently Viewed Contents
+ 
+      Shows the contents based upon the recent usage
+
+      
+    * #### Playlist
+        Users can select their own contents and create their own playlist for ease of access of content.
+        * ##### Upload from Youtube
+     
+          Fetches content from Youtube and add it to Playlist.
+          
+        * ##### Upload local files
+          
+           Users can select files  from the device  and add it to the Playlist.
+          
+        * ##### Upload from Diksha
+     
+          Fetches content from DIKSHA and add it to Playlist.
+* ### Telemetry Sync
+
 ## Project Source code Structure
 ```js
 ├── app
