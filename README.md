@@ -26,6 +26,53 @@ The Sunbird-AIAssistant mobile app is a versatile platform allowing users to sea
         * Upload from Diksha
 * Telemetry Sync
 
+  
+## Project Source code Structure
+```js
+├── app
+│   ├── components
+│   │   ├── add-to-pitara
+│   │   ├── app-exit
+│   │   ├── app-update
+│   │   ├── application-header
+│   │   ├── bot-messages
+│   │   ├── bot-permission
+│   │   ├── edit-removed-modal
+│   │   ├── langauge-select
+│   │   ├── new-playlist-modal
+│   │   ├── qrcode-popup
+│   │   ├── recording-alert
+│   │   ├── sheet-modal
+│   │   ├── skeleton-item
+│   │   └── upload-local
+│   ├── directives
+│   ├── pages
+│   │   ├── create-playlist
+│   │   ├── home
+│   │   ├── mypitara
+│   │   ├── parent-sakhi
+│   │   ├── player
+│   │   ├── playlist-details
+│   │   ├── qr-scan-result
+│   │   ├── search
+│   │   ├── splash
+│   │   ├── story
+│   │   ├── teacher-sakhi
+│   │   └── view-all
+│   ├── services
+│   │   ├── api
+│   │   ├── app-update
+│   │   ├── bot
+│   │   ├── config
+│   │   ├── content
+│   │   ├── db
+│   │   ├── playlist
+│   │   ├── scan
+│   │   ├── sources
+│   │   └── telemetry
+│   └── tabs
+├── assets
+```
 
 **Prerequisites:**
 |Package| Version | Recommended  Version |
