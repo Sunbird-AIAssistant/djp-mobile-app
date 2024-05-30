@@ -113,6 +113,32 @@ The Sunbird-AIAssistant mobile app is a versatile platform allowing users to sea
 [Java(For Android)](https://www.oracle.com/in/java/technologies/downloads/) | 17+ | 17.0.5
 [Gradle(For Android)](https://gradle.org/install/) | 8+ | 8.5
 
+**Configuration files**
+* #### config.properties
+    * `app_name` : name of the app
+    * `app_id` :   applicationId of the app
+    * `app_version_code` :  app version code(Needs to be updated before playstore)
+
+* #### environment.prod.ts
+    * `BASE_URL` : Base url of the instance
+    * `CONFIG` :   config API end point
+    * `PAGE_SEARCH_API` :  content search API end point
+    * `CONTEXT_SEARCH` :  content search API end point
+    * `CONTENT_SEARCH_API` :  content search API end point
+    * `BOT_QUERY_API` :  bot query API end point
+    * `SEARCH_API` :  diksha content search API end point
+    * `BOT_SAKHI_API_PATH` :  story bot API end point
+    * `BOT_ACTIVITY_API_PATH` :  teacher and parent bot end point
+    * `REGISTER_DEVICE_API_PATH` :  device registry API end point
+    * `KEY` :  Key for API token generation
+    * `SECRET` :  Secret for API token generation
+    * `PRODUCER_ID` :  Unique id to identify mobile app telemetry events
+    * `PRODUCER_PID` :  Source to identify mobile app telemetry events
+
+
+    
+    
+
 **Project Setup**
 
 **1. Ionic-Android build Setup**    
