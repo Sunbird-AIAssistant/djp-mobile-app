@@ -215,6 +215,8 @@ export class HomePage implements OnInit, OnTabViewWillEnter, OnDestroy {
       this.contentService.getAllContent().then(val => {
         this.contentList = [];
         this.contentList = val;
+        this.configContents = [];
+        this.generateItems();
       })
     } else {
       this.noSearchData = true;
